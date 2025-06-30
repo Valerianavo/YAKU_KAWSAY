@@ -15,7 +15,10 @@ function mostrarAlerta(mensaje, tipo) {
 }
 
 function iniciarSistema() {
-  document.getElementById('waveAnimation').style.display = 'block';
+ const wave = document.getElementById('waveAnimation');
+wave.style.display = 'block';
+wave.classList.add('animar');
+
   document.getElementById('aguaLed').classList.add('on');
   setTimeout(() => document.getElementById('flujoLed').classList.add('on'), 1000);
   setTimeout(() => document.getElementById('fuerzaLed').classList.add('on'), 1500);
@@ -45,7 +48,7 @@ function iniciarSistema() {
 function detenerSistema() {
   document.querySelectorAll('.led').forEach(led => led.classList.remove('on'));
   document.getElementById('barraEnergia').style.width = '0%';
-  document.getElementById('waveAnimation').style.display = 'none';
+  document.getElementById('waveAnimation').classList.remove('animar');
   document.getElementById('circleFuerza').classList.remove('fill');
   document.getElementById('circleEnergia').classList.remove('fill');
   energia = 0;
@@ -55,8 +58,10 @@ function detenerSistema() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  //tiempo 
+  setInterval(() => {
   const fecha = new Date().toLocaleString();
-  document.getElementById('fecha').textContent = fecha;
-  document.getElementById('waveAnimation').style.display = 'none';
+  document.getElementById('fecha').textContent = fecha; 
+  }, 1000); 
   actualizarMedidores();
 });
