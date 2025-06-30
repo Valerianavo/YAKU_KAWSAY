@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yaku Kawsay - Panel de Control</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside>
+    <h2>Panel de Control</h2>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Estado del sistema</a>
+      <a href="#">Simulación en tiempo real</a>
+      <a href="#">Reportes</a>
+      <a href="#">Ajustes</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <div class="dashboard-header">
+      <h1>Simulador Energía Hídrica</h1>
+      <span id="fecha"></span>
+    </div>
+
+    <div class="alerta-sistema" id="alertaSistema"></div>
+
+    <div class="panel">
+      <h2>Visualización del Agua</h2>
+      <div class="visual">
+        <div class="wave" id="waveAnimation"></div>
+      </div>
+
+      <h2>Estado del Sistema</h2>
+      <div class="status">
+        <div class="indicator">Agua en movimiento: <div class="led" id="aguaLed"></div></div>
+        <div class="indicator">Flujo generado: <div class="led" id="flujoLed"></div></div>
+        <div class="indicator">Fuerza hidráulica: <div class="led" id="fuerzaLed"></div></div>
+        <div class="indicator">Energía funcionando: <div class="led" id="energiaLed"></div></div>
+        <div class="indicator">Luz generada: <div class="led" id="luzLed"></div></div>
+      </div>
+
+      <div class="meter">
+        <div class="circle" id="circleFuerza" data-label="Fuerza: 0%"></div>
+        <div class="circle" id="circleEnergia" data-label="Energía: 0%"></div>
+      </div>
+
+      <div class="progress">
+        <div class="progress-bar" id="barraEnergia"></div>
+      </div>
+
+      <div class="controls">
+        <button onclick="iniciarSistema()">Iniciar</button>
+        <button onclick="detenerSistema()">Detener</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
